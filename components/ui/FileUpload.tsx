@@ -7,13 +7,13 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { boolean } from "drizzle-orm/mysql-core";
+
+// https://github.com/aws/aws-sdk-js-v3/issues/4126
 
 const FileUpload = () => {
   const router = useRouter();
   const [uploading, setUploading] = React.useState(false);
-
-  const { mutate } = useMutation({
+  const { mutate} = useMutation({
     mutationFn: async ({
       file_key,
       file_name,
@@ -50,8 +50,8 @@ const FileUpload = () => {
         }
         mutate(data, {
           onSuccess: ({ chat_id }) => {
-            console.log(data)
             toast.success("Chat created!");
+            router.push(`/chat/${chat_id}`);
           },
           onError: (err) => {
             toast.error("Error creating chat");
@@ -79,7 +79,7 @@ const FileUpload = () => {
             {/* loading state */}
             <Loader2 className="h-10 w-10 text-blue-500 animate-spin" />
             <p className="mt-2 text-sm text-slate-400">
-              Sending info to GPT
+              Spilling Tea to GPT...
             </p>
           </>
         ) : (
