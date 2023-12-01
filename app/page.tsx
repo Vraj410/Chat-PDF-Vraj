@@ -60,7 +60,7 @@ export default async function Home() {
 
               <Link href ='/sign-up'>
               <Button className="mt-4">
-                  Don&apos;t have an account? Sign Up Here
+                  Sign Up
                   <LogIn className="w-4 h-4 ml-2" />
                 </Button>
 
