@@ -50,12 +50,25 @@ export default async function Home() {
             {isAuth ? (
               <FileUpload />
             ) : (
-              <Link href="/sign-in">
+              <div className="flex flex-col">
+                <Link href="/sign-in">
                 <Button>
                   Login to get Started!
                   <LogIn className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
+
+              <Link href ='/sign-up'>
+              <Button className="mt-4">
+                  Don&apos;t have an account? Sign Up Here
+                  <LogIn className="w-4 h-4 ml-2" />
+                </Button>
+
+              </Link>
+
+              </div>
+              
+              
             )}
           </div>
         </div>
